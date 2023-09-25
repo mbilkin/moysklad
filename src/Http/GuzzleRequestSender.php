@@ -16,6 +16,6 @@ class GuzzleRequestSender implements RequestSenderInterface
      */
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
-        return (new Client())->send($request);
+        return (new Client())->send($request, ['decode_content'=>'gzip']);
     }
 }
