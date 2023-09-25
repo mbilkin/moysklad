@@ -86,4 +86,43 @@ class CustomerOrderClient extends EntityClientBase
     {
         return CustomerOrder::class;
     }
+    
+    /**
+     * @param string $id
+     * @param Param[] $params
+     * @return ListEntity
+     * @throws ApiClientException
+     */
+    public function getPositions(string $id, array $params = []): AbstractListEntity
+    {
+        /** @var $listEntity ListEntity */
+        $listEntity = RequestExecutor::path(
+            $this->getApi(),
+            $this->getPath() . $id . '/positions/'
+        )
+            ->params($params)
+            ->get(ListEntity::class);
+
+        return $listEntity;
+    }
+    
+    /**
+     * В выборке Событий аудита отсутствует meta поэтому запрашиваем костыльно в виде массива
+     * @param string $id
+     * @param Param[] $params
+     * @return ListEntity
+     * @throws ApiClientException
+     */
+    public function getAuditEvents(string $id, array $params = []):array
+    {
+        /** @var $listEntity ListEntity */
+        $listEntity = RequestExecutor::path(
+            $this->getApi(),
+            $this->getPath() . $id . '/audit/'
+        )
+            ->params($params)
+            ->get(\MoySklad\Entity\MetaEntity::class);
+
+        return $listEntity;
+    }
 }

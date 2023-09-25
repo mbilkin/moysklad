@@ -23,6 +23,29 @@ class MetaEntity
      * @Type("MoySklad\Entity\Meta")
      */
     protected $meta;
+    
+    /**
+     * 
+     * @var boolean
+     */
+    protected $_fetched = false;
+    
+    /**
+     * set is fetched object
+     * @param boolean $value
+     */
+    public function setIsFetch($value = true) {
+        $this->_fetched = $value;
+        return $this;
+    }
+    
+    /**
+     * is fetchet object
+     * @return boolean
+     */
+    public function isFetched() {
+        return $this->_fetched;
+    }
 
     /**
      * MetaEntity constructor
@@ -41,16 +64,19 @@ class MetaEntity
      * @throws ApiClientException
      * @throws \Exception
      */
-    public function fetch(ApiClient $api): void
+    public function fetch(ApiClient $api, $useCache = false): void
     {
         if (empty($this->meta->href)) {
             throw new \Exception("The entity has not metadata.");
         }
+        if (!$this->_fetched || !$useCache) {
+            $fetched = RequestExecutor::url($api, $this->meta->href)->get(get_class($this));
 
-        $fetched = RequestExecutor::url($api, $this->meta->href)->get(get_class($this));
+            foreach ($this as $property => &$value) {
+                $value = $fetched->$property;
+            }
 
-        foreach ($this as $property => &$value) {
-            $value = $fetched->$property;
+            $this->_fetched = true;
         }
     }
 

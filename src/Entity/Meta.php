@@ -17,7 +17,7 @@ final class Meta
         'bonustransaction' => Discount\BonusTransaction::class,
 
         'customerorder' => Document\CustomerOrder::class,
-
+        'customerorderposition' => Document\Position::class,
         'retaildemand' => Document\RetailDemand::class,
         'demandposition' => Document\DemandPosition::class,
         'retailsalesreturn' => Document\RetailSalesReturn::class,
