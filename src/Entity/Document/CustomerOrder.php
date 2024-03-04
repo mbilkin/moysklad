@@ -201,7 +201,7 @@ class CustomerOrder extends MetaEntity
     public $invoicesOut = [];
     
     /**
-     * @Type("array<MoySklad\Entity\Document\RetailDemand>")
+     * @Type("array<MoySklad\Entity\Document\Demand>")
      */
     public $demands = [];
     

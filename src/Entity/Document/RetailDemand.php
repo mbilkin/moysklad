@@ -145,8 +145,7 @@ class RetailDemand extends MetaEntity
     public $vatSum;
 
     /**
-     * @Type("array<MoySklad\Entity\Document\DemandPosition>")
-     * @Generator(type="objectArray", objectQuantity=3)
+     * @Type("MoySklad\Entity\ListEntity")
      */
     public $positions;
 

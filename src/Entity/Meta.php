@@ -19,7 +19,9 @@ final class Meta
         'customerorder' => Document\CustomerOrder::class,
         'customerorderposition' => Document\Position::class,
         'retaildemand' => Document\RetailDemand::class,
+        'demand' => Document\Demand::class,
         'demandposition' => Document\DemandPosition::class,
+        'retaildemandposition' => Document\RetailDemandPosition::class,
         'retailsalesreturn' => Document\RetailSalesReturn::class,
         'salesreturnposition' => Document\SalesReturnPosition::class,
         'retaildrawercashin' => Document\RetailDrawerCashIn::class,
@@ -60,6 +62,7 @@ final class Meta
         'uom' => Uom::class,
         'variant' => Variant::class,
         'webhook' => WebHook::class,
+        'slot' => Slot::class,
     ];
 
     /**

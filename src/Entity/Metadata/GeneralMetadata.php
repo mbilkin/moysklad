@@ -19,4 +19,9 @@ class GeneralMetadata extends Metadata
      * @Type("array<MoySklad\Entity\Attribute>")
      */
     public $attributes = [];
+
+    /**
+     * @Type("array<MoySklad\Entity\State>")
+     */
+    public $states;
 }

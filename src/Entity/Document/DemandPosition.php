@@ -64,4 +64,21 @@ class DemandPosition extends MetaEntity
      * @Generator()
      */
     public $cost;
+    
+    /**
+     * @Type("bool")
+     * @Generator()
+     */
+    public $vatEnabled;
+    
+    /**
+     * @Type("int")
+     * @Generator()
+     */
+    public $overhead;
+    
+    /**
+     * @Type("MoySklad\Entity\Slot")
+     */
+    public $slot;
 }

@@ -257,6 +257,14 @@ class EntityClient
     }
 
     /**
+     * @return StateDemandClient
+     */
+    public function stateDemand(): StateDemandClient
+    {
+        return new StateDemandClient($this->api);
+    }
+    
+    /**
      * @return ContextClient
      */
     public function context(): ContextClient
@@ -272,6 +280,14 @@ class EntityClient
         return new StatusClient($this->api);
     }
 
+    /**
+     * @return DemandClient
+     */
+    public function demand(): DemandClient
+    {
+        return new DemandClient($this->api);
+    }
+    
     /**
      * @return RetailDemandClient
      */
