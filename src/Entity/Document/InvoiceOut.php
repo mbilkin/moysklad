@@ -23,4 +23,9 @@ class InvoiceOut extends MetaEntity {
      * @Type("string")
      */
     public $syncId;
+
+    /**
+     * @Type("MoySklad\Entity\Document\CustomerOrder")
+     */
+    public $customerOrder;
 }

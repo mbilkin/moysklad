@@ -209,5 +209,10 @@ class Demand extends MetaEntity
      * @Type("MoySklad\Entity\Document\CustomerOrder")
      */
     public $customerOrder;
+
+    /**
+     * @Type("array<MoySklad\Entity\Document\InvoiceOut>")
+     */
+    public $invoicesOut = [];
     
 }
